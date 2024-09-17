@@ -1,0 +1,94 @@
+1. What are hooks in React?
+Ans: Hooks are the functions which allows us to use the life cycle method in a functional component.
+
+2. What are the rules of Hooks?
+Ans: Hooks can only be called from React functional. Hooks should be called at the top level of a functional component or custom Hook.
+     Hooks should not be called conditionally. They need to be called unconditionally on every render to maintain 
+     consistent behavior and state management.
+
+3. What is useState Hook?
+Ans: It allows us to add state management to functional components. 
+    const [input, setInput] = useState()
+    here input is the variable which holds the current value, while setInput is the function which handles the state  or
+    we can say it update the current state i.e input
+
+4. What is UseReducer Hook?
+Ans: The useReducer Hook is the better alternative to the useState hook and is generally more preferred over the useState hook.
+     when we have complex state-building logic or when the next state value depends upon its previous value or 
+     when the components are needed to be optimized.
+     const [state, dispatch] = useReducer(reducer, initialArgs, init);
+     Here reducer is the user-defined function that pairs the current state with the dispatch method to handle the state,  
+     initialArgs refers to the initial arguments and init is the function to initialize the state lazily.
+     #Dispatch: This is a function that we use to send actions to the reducer. Each action object usually has a type property 
+     (and possibly other properties) to indicate what kind of update should occur.
+     #initialArgs: is provided as the initial state
+     #init: parameter is an optional function that allows you to lazily initialize the state. 
+     This can be particularly useful when the initial state is complex or expensive to compute.
+     example as:
+    
+     function reducer(state, action) {
+          switch (action.type) {
+                case 'increment':
+                      return { count: state.count + 1 };
+                case 'decrement':
+                      return { count: state.count - 1 };
+                default:
+                      throw new Error('Unknown action type');  }
+                      }
+           // Function to initialize state
+          function init(initialCount) {
+       // Perform some expensive computation or setup here
+          return { count: initialCount };
+           }
+    
+       function Counter() {
+          // Use init to lazily initialize the state
+            const [state, dispatch] = useReducer(reducer, 0, init);
+            }
+
+
+5. What is useRef Hook?
+Ans: The useRef is a hook that allows to directly create a reference to the DOM element in the functional component.
+     The main use of useRef hook is to access the DOM elements in a more efficient way as compared to simple refs. 
+     Since useRef hooks preserve value across various re-renders and do not cause re-renders whenever a value is changed,
+     they make the application faster and helps in caching and storing previous values.
+     const refContainer = useRef(initialValue);
+     const onClickHandler = () => {
+        focusPoint.current.value =
+            "Welcome to GeeksforGeeks!";
+        focusPoint.current.focus();
+        console.log("Textarea ref:",
+            focusPoint.current);
+    };
+    here it will focus the element on Click.
+
+6. What is useEffect Hook?
+Ans: In simple words useEffects help components to communicate and coordinate with the world outside of React.
+     useEffect(<FUNCTION>, <DEPENDECY>)
+     useEffect(()=>{},[])
+     such as handling network requests, manipulating the browser’s DOM, managing animations, integrating with widgets from other UI libraries,
+     and working with non-React code
+     By default, useEffect kicks in after every render, making sure everything stays up to date.
+     The square bracket is the dependency array here. This array specifies values that the effect depends on. 
+     If any of these values change between renders, the effect will run again. If the array is empty, 
+     the effect only runs once after the initial render.
+     #Cleanup Function: useEffect can optionally return a cleanup function. 
+     This function runs before the effect is re-executed (before every update) and when the component is unmounted. 
+     It’s used to clean up any resources or subscriptions created by the effect to prevent memory leaks.
+
+
+7. What are Higher-Order Components?
+Ans: Higher-Order Components (HOCs) are functions in React that take a component as an argument and return a new component. 
+     They allow code reuse by adding additional functionality to the original component without modifying it directly.
+
+8. What is useContext Hook?
+Ans: Context enables passing data/state through the component tree without manual prop passing. 
+     It’s for sharing global data like user authentication or theme.
+
+
+
+
+
+
+
+
