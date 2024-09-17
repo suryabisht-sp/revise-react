@@ -1,18 +1,38 @@
 1. What are hooks in React?
 Ans: Hooks are the functions which allows us to use the life cycle method in a functional component.
 
-2. What are the rules of Hooks?
+2. What are life cycle methods?
+Ans: lifecycle methods in React are like "phases" a component goes through from the moment it's created to the moment it's removed. 
+     These phases help you control what happens at each step, like setting things up when the component appears on the screen or 
+     cleaning up when it's removed.
+     #Birth (Mounting): This is when the component is created and placed on the page (like when you're born and start life). 
+     During this stage, we might want to fetch data or set up anything the component needs right after it appears.
+     #Growth (Updating): The component is already on the page, but it keeps changing (like growing and learning new things). 
+     This happens when the data or the component's state changes. Here, we might want to respond to changes in data, 
+     like updating the view when the user clicks a button or changes something.
+     #Death (Unmounting): This is when the component is removed from the page (like when a person retires or finishes something).
+     We might want to clean up resources, like closing connections or stopping timers, when the component is no longer needed.
+
+2.A. Why we can't use life cycle method directly in functional component?
+Ans: We can’t use them directly because functional components are simpler and don't have the same structure as class components, 
+     where lifecycle methods are typically used. In class components, we have access to lifecycle methods like componentDidMount, 
+     componentDidUpdate, and componentWillUnmount because these methods are part of the class structure. 
+     A class allows us to define methods and manage component state with this keyword while Functional components are just plain JavaScript 
+     functions that take props as input and return JSX. They don't have a built-in mechanism for lifecycle methods 
+     because they don't manage internal methods or state the same way classes do.
+
+3. What are the rules of Hooks?
 Ans: Hooks can only be called from React functional. Hooks should be called at the top level of a functional component or custom Hook.
      Hooks should not be called conditionally. They need to be called unconditionally on every render to maintain 
      consistent behavior and state management.
 
-3. What is useState Hook?
+4. What is useState Hook?
 Ans: It allows us to add state management to functional components. 
     const [input, setInput] = useState()
     here input is the variable which holds the current value, while setInput is the function which handles the state  or
     we can say it update the current state i.e input
 
-4. What is UseReducer Hook?
+5. What is UseReducer Hook?
 Ans: The useReducer Hook is the better alternative to the useState hook and is generally more preferred over the useState hook.
      when we have complex state-building logic or when the next state value depends upon its previous value or 
      when the components are needed to be optimized.
@@ -47,7 +67,7 @@ Ans: The useReducer Hook is the better alternative to the useState hook and is g
             }
 
 
-5. What is useRef Hook?
+6. What is useRef Hook?
 Ans: The useRef is a hook that allows to directly create a reference to the DOM element in the functional component.
      The main use of useRef hook is to access the DOM elements in a more efficient way as compared to simple refs. 
      Since useRef hooks preserve value across various re-renders and do not cause re-renders whenever a value is changed,
@@ -62,7 +82,7 @@ Ans: The useRef is a hook that allows to directly create a reference to the DOM 
     };
     here it will focus the element on Click.
 
-6. What is useEffect Hook?
+7. What is useEffect Hook?
 Ans: In simple words useEffects help components to communicate and coordinate with the world outside of React.
      useEffect(<FUNCTION>, <DEPENDECY>)
      useEffect(()=>{},[])
@@ -77,14 +97,14 @@ Ans: In simple words useEffects help components to communicate and coordinate wi
      It’s used to clean up any resources or subscriptions created by the effect to prevent memory leaks.
 
 
-7. What are Higher-Order Components?
+8. What are Higher-Order Components?
 Ans: Higher-Order Components (HOCs) are functions in React that take a component as an argument and return a new component. 
      They allow code reuse by adding additional functionality to the original component without modifying it directly.
 
-8. What is useContext Hook?
+9. What is useContext Hook?
 Ans: Context enables passing data/state through the component tree without manual prop passing. 
      It’s for sharing global data like user authentication or theme.
-
+     
 
 
 
