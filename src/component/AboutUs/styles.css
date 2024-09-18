@@ -1,0 +1,14 @@
+
+.fixed-background {
+    background-image: url('https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg'); /* Replace with your image URL */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Adjust the height as needed */
+  }
+  
+  .content {
+    padding: 20px;
+    color: white; /* Adjust text color for better readability */
+  }

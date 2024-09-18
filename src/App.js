@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Home, PrivateRoutes } from './component';
+import About from './component/AboutUs/About';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             </PrivateRoutes>
           }
         />
+        <Route path='/about' element={<About/>}/>
     </Routes>
     </div>
   );
