@@ -1,0 +1,25 @@
+1. What is usecallback Hook?
+Ans: React useCallback hook returns a memoized function to reduce unnecessary callbacks. 
+     This useCallback hook is used when you have a component in which the child is rerendering again and again without need.
+     const memoizedCallback = useCallback(
+            () => {
+            doSomething(a, b);
+                },    
+            [a, b],
+            );
+     This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.    
+
+2. What are React-Router Hooks?
+Ans: React-Router is a popular React library that is heavily used for client-side routing and offers single-page routing. 
+     It provides various Component APIs( like Route, Link, Switch, etc.) that we can use in our React application to 
+     render different components based on the URL pathnames on a single page. React Router hooks are the predefined functions used 
+     to interact with the router and manage navigation, locations, and url parameters in functional components.
+     These hooks are provided by the React Router which is a routing and navigation library for React.
+
+3. What are the hooks in react-router?
+Ans: react router have below hooks:
+     #useHistory now useNavigation
+     #useParams
+     #useLocation
+     #useRouteMatch
+
