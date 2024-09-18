@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react'
-import "../Counter/styles.css"
+import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import "../../chapter1/Counter/styles.css"
 
 
 // Reducer function for managing both counter and input state
@@ -54,7 +54,26 @@ const CounterUserReducer = () => {
     setCount(hits)
   },[hits])
 
-  return (
+
+
+  // for use memo hook
+
+  const [number, setNumber] = useState(0);
+  const squaredNum = useMemo(() => {
+    return squareNum(number);
+}, [number]);
+
+
+  function squareNum(number) {
+    console.log("Squaring will be done!");
+    return Math.pow(number, 2);
+  }
+
+  const onChangeHandler = (e) => {
+    setNumber(e.target.value);
+}; 
+
+return (
     <div>
       <div className='main-box'>
         <h1>useReducer Hook</h1>
@@ -62,8 +81,7 @@ const CounterUserReducer = () => {
         <button onClick={() => dispatch({ type: 'add' })}>Increase</button>
         <button onClick={() => dispatch({ type: 'subtract' })}>Decrease</button>
         <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-      </div>
-      
+      </div>  
       <div className='main-box'>
         <h2>Used case of useRef hook</h2>
         <label>
@@ -83,6 +101,23 @@ const CounterUserReducer = () => {
         <button onClick={()=>{handleDecrease()}} disabled={count === 0}  className={count === 0 ? 'disabled-button' : ''}>-</button>
         <button onClick={() => setCount(0)}>Clear</button>
       </div>
+      </div>
+      <div>
+      <h1>useMemo Hook</h1>
+      <label>Enter the number to get its square value</label>
+      <br/>
+      <br/>
+            <input
+                type="number"
+                placeholder="Enter a number"
+                value={number}
+                onChange={onChangeHandler}
+            ></input>
+<br/>
+<br/>
+            <div>Squared Value: {squaredNum}</div>
+
+
       </div>
     </div>
   );

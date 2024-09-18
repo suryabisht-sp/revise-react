@@ -1,0 +1,30 @@
+
+
+    .header{
+      display: flex;
+      justify-Content: space-between;
+      align-Items: center;
+      padding: 10px 20px;
+      background-Color: #f8f9fa;
+      border-Bottom: 1px solid #e5e5e5
+    }
+    .logo {
+      font-Size: 24px;
+      font-Weight: bold
+    }
+    .nav{
+      display: flex;
+      gap: 25px
+    }
+    .navLink {
+      text-Decoration: none;
+      color: #007bff;
+      font-Size: 18px
+    }
+    .authButtons{
+      display: flex;
+      gap: 10px;
+      width: 180px
+    }
+  
+  

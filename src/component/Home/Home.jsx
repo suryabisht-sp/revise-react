@@ -1,10 +1,10 @@
 import React from 'react'
-import Counter from '../../chapter2/Counter'
-import CounterUserReducer from '../../chapter2/CounterUseReducer'
+import Counter from '../chapter1/Counter'
+import CounterUserReducer from '../chapter2/CounterUseReducer'
 
 const Home = () => {
   return (
-    <div>Home
+    <div>
       <br/>
       <Counter/>
       <CounterUserReducer/>

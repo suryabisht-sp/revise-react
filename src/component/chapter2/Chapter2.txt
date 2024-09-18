@@ -3,7 +3,7 @@ Ans: Hooks are the functions which allows us to use the life cycle method in a f
 
 2. What are life cycle methods?
 Ans: lifecycle methods in React are like "phases" a component goes through from the moment it's created to the moment it's removed. 
-     These phases help you control what happens at each step, like setting things up when the component appears on the screen or 
+     These phases help us to control what happens at each step, like setting things up when the component appears on the screen or 
      cleaning up when it's removed.
      #Birth (Mounting): This is when the component is created and placed on the page (like when you're born and start life). 
      During this stage, we might want to fetch data or set up anything the component needs right after it appears.
@@ -104,7 +104,35 @@ Ans: Higher-Order Components (HOCs) are functions in React that take a component
 9. What is useContext Hook?
 Ans: Context enables passing data/state through the component tree without manual prop passing. 
      It’s for sharing global data like user authentication or theme.
+     example: const authContext = useContext(initialValue);
+     In the code we have created a auth component and a ContextProvider to wrap our app, we can use the provider to wrap the component as well
+     where we want to use context. 
+     #first we created AuthContext then a provider and wrapped the whole application with the provider so that we could access it globally.
+     # secondly the we have destructured the context in header and used accordindly.
      
+10. What is useMemo Hook?
+Ans: useMemo hook is used to get the memoized value of a function in react components. 
+     It works on the concept of memoization which refers to caching the output of a function for a given argument to 
+     save the computation time thus, improves the application performance. 
+     It returns a memoized value and prevents the application from unnecessary re-renders. 
+     It is useful in heavy computations and processes when using functional components.
+     const memoizedValue = useMemo(functionThatReturnsValue, arrayDependencies)
+     #const squaredNum = useMemo(() => {
+          return squareNum(number);
+               },[number]);
+     here number is our useState current value. so this functions will only work or get render if the input value changes only. 
+
+11. What is React.memo() ?
+Ans: React.memo() is a higher-order component (HOC) provided by React that memoizes functional components.
+     It means that it caches the result of the component’s rendering based on its props, and re-renders only when the props have changed.
+     const MemoizedComponent = React.memo(FunctionalComponent);
+
+
+
+
+
+
+
 
 
 
