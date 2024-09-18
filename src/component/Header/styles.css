@@ -9,7 +9,7 @@
       border-Bottom: 1px solid #e5e5e5
     }
     .logo {
-      font-Size: 24px;
+      font-Size: 32px;
       font-Weight: bold
     }
     .nav{
@@ -19,7 +19,13 @@
     .navLink {
       text-Decoration: none;
       color: #007bff;
-      font-Size: 18px
+      font-Size: 18px;
+      font-weight: 700;
+    }
+    .navLink:hover {
+   
+      color: rgb(42, 140, 165);
+     
     }
     .authButtons{
       display: flex;
@@ -28,3 +34,27 @@
     }
   
   
+    .strike-through {
+      font-Size: 24px;
+      font-weight: 700;
+    }
+
+    .strike-through {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .strike-through::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 12px;
+      bottom: 0;
+      width: 100%;
+      height: 3px; /* Thickness of the line */
+      background-color: red; /* Color of the line */
+      transform: rotate(10deg); /* Rotate to create a diagonal line */
+      transform-origin: center; /* Rotate from the center */
+    }
+    

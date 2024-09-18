@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import "../../chapter1/Counter/styles.css"
-import CallBacks from '../../chapter3/Callbacks/CallBacks';
+import CallBacks from '../../Chapter3/Callbacks/CallBacks';
 
 
 // Reducer function for managing both counter and input state

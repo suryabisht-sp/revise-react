@@ -12,5 +12,5 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 # Chapters
-Inside the src folders there are folders named chapters.
-Inside each each chapter we do have a text file, mentioning what it that particular folder/chapter is all about.
+Inside the src folders there are folders named chapters followed by the number.
+Inside each each chapter there is a text file, mentioning what is the particular folder/chapter is all about.
