@@ -1,0 +1,81 @@
+
+.carousle-point{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.c-point1{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+.c-point1 span{
+     font-size: 20px;
+     line-height: 20px;
+     font-weight: 500;
+     color: #002347;
+}
+
+h1{
+    font-size: 48px !important;
+    color: #002347;
+}
+
+.btn-cpoint1 button{
+    width: 10%;
+    height: 52px;
+}
+
+.btn-1{
+    color:#fdc632;
+    background-color: #002347;
+    border: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: 200ms ease-in;
+}
+.btn-2{
+    background-color: #fdc632;
+    color: #002347;
+    border: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: 200ms ease-in;
+}
+
+.btn-1:hover{
+    background-color: transparent;
+    border: 1px solid #002347;
+    color: #002347;
+}
+
+.btn-2:hover{
+    background-color: #002347;
+    color: #fdc632;
+}
+.card-box{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    padding: 0 10%;
+}
+.awesome-div{
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.awesome-div span{
+    font-style: italic;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #7b838a;
+}
+
+.awesome-div h2{
+        font-size: 32px !important;
+        color: #002347 !important;
+
+}

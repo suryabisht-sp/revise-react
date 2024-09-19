@@ -6,7 +6,10 @@
       align-Items: center;
       padding: 10px 20px;
       background-Color: #f8f9fa;
-      border-Bottom: 1px solid #e5e5e5
+      border-Bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 1;
     }
     .logo {
       font-Size: 32px;

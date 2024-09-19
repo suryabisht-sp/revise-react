@@ -5,6 +5,7 @@ import Header from "./Header/Header"
 import AuthProvider from "./chapter2/Context/AuthProvider"
 import CallBacks from "./Chapter3/Callbacks"
 import PrivateRoutes from "./HOC/PrivateRoutes"
+import Landing from "./Landing"
 export {
     Home,
     Counter,
@@ -12,6 +13,6 @@ export {
     Header,
     AuthProvider,
     CallBacks,
-    PrivateRoutes
-
+    PrivateRoutes,
+     Landing
 }
