@@ -1,0 +1,105 @@
+.card-container{
+    background-color: #f9f9ff;
+    width: 330px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.image-div{
+  overflow: hidden;
+    }
+
+.image-div img{
+    transition: 0.3s ease-in-out
+}
+
+.price-div{
+    position: absolute;
+    z-index: 1;
+    background: #fdc632;
+    color: #002347;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    border-radius: 50%;
+    top: 43%;
+    right: 5%;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.context-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 26px;
+}
+.context-div p{
+    text-align: left;
+    line-height: 25px;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: #7b838a;
+}
+.btn-design{
+    width: 43%;
+    border-radius: 0;
+    padding: 7px 21px;
+    font-size: 14px;
+    color: #fff;
+    background: #002347;
+    text-transform: uppercase;
+    border: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+.user-details{
+    display: flex;
+    padding: 0 26px 21px 26px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.svg-items{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.name-item{
+    font-size: 14px;
+    font-weight: 700;
+}
+.display-div{
+    display: flex;
+    gap: 5px;
+}
+
+.svg-items svg{
+    width: 23px;
+    height: 23px;
+}
+
+.card-container:hover .image-div img {
+    transform: scale(1.05);
+}
+
+.card-container:hover .price-div {
+    background-color: #002347;
+    color: #fdc632;
+}
+
+.card-container:hover .context-div h3{
+    color: #fdc632;
+}
+
+.card-container:hover{
+    box-shadow: 1px 1px 10px  rgb(168, 166, 166);
+    border-radius: 5px;
+    background-color: #fff;
+}

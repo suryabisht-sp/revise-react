@@ -2,10 +2,10 @@ import React from 'react'
 import "./Footer.css"
 const Footer = () => {
   return (
-    <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
+    <footer className="footer">
+    <div className="container">
+        <div className="footer-content">
+            <div className="footer-section">
                 <h3>Top Products</h3>
                 <ul>
                     <li>Managed Website</li>
@@ -14,7 +14,7 @@ const Footer = () => {
                     <li>Marketing Service</li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div className="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li>Jobs</li>
@@ -23,7 +23,7 @@ const Footer = () => {
                     <li>Terms of Service</li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div className="footer-section">
                 <h3>Features</h3>
                 <ul>
                     <li>Jobs</li>
@@ -32,7 +32,7 @@ const Footer = () => {
                     <li>Terms of Service</li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div className="footer-section">
                 <h3>Resources</h3>
                 <ul>
                     <li>Guides</li>
@@ -41,7 +41,7 @@ const Footer = () => {
                     <li>Agencies</li>
                 </ul>
             </div>
-            <div class="footer-section newsletter">
+            <div className="footer-section newsletter">
                 <h3>Newsletter</h3>
                 <p>You can trust us. we only send promo offers,</p>
                 <div className='form-subscription'>
@@ -50,9 +50,9 @@ const Footer = () => {
             </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div className="footer-bottom">
             <p>Copyright © 2024 All rights reserved | This template is made with ♥ by a developer</p>
-            <div class="social-icons">
+            <div className="social-icons">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
   <path d="M22 2.03C22 1.09 21.1 0 20.09 0H3.91C2.9 0 2 1.09 2 2.03v19.94C2 22.91 2.9 24 3.91 24H12.5v-9.29H9.42v-3.7h3.08V8.1c0-3.07 1.88-4.75 4.63-4.75 1.32 0 2.46.1 2.79.14v3.23h-1.91c-1.5 0-1.79.72-1.79 1.77v2.31h3.6l-.47 3.7h-3.13V24h6.14c1.01 0 1.91-.89 1.91-1.97V2.03z" fill="#1877F2"/>
 </svg>

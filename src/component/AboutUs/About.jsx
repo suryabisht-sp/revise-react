@@ -2,10 +2,10 @@ import React from 'react'
 import "./styles.css"
 const About = () => {
   return (
-    <div class="">
-    <div class="fixed-background"></div>
+    <div className="">
+    <div className="fixed-background"></div>
     <div className='black-bg'></div>
-  <div class="content">
+  <div className="content">
     <h1>React <span className='strike-through'> Boss</span>Leader</h1>
 
   <div className='content-text'>Your one-stop resource for mastering React.js, one of the most powerful and popular JavaScript libraries for building user interfaces. Whether you're a beginner just getting started or an experienced developer looking to deepen your skills, our platform is designed to help you grow.
@@ -14,8 +14,8 @@ const About = () => {
         </div>
 
   </div>
-  <div class="fixed-background2"></div>
-  <div class="content">
+  <div className="fixed-background2"></div>
+  <div className="content">
     <h1>Our Mission</h1>
 
   <div className='content-text'>
@@ -28,7 +28,7 @@ At [Website Name], our mission is to empower developers with the knowledge and t
      
 
   </div>
-  <div class="fixed-background3"></div>
+  <div className="fixed-background3"></div>
      <div className='content'>
 <div className='content-text'>
 <h1>Why Learn React?</h1>
@@ -42,9 +42,9 @@ Build reusable components for efficient development
 Manage complex states and data flows easily
      </div>
      </div>
-     <div class="fixed-background4"></div>
+     <div className="fixed-background4"></div>
 
-  <div class="content">
+  <div className="content">
     <h1> Who we are</h1>
 
   <div className='content-text'>
@@ -53,8 +53,8 @@ Manage complex states and data flows easily
         </div>
 
   </div>
-  <div class="fixed-background5"></div>
-  <div class="content">
+  <div className="fixed-background5"></div>
+  <div className="content">
     <h1>Join Us on This Journey</h1>
 
   <div className='content-text'>
@@ -66,7 +66,7 @@ Manage complex states and data flows easily
      
 
   </div>
-  <div class="fixed-background5"></div>
+  <div className="fixed-background5"></div>
 </div>
 
   )
