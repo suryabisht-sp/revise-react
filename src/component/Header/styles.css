@@ -5,7 +5,7 @@
       justify-Content: space-between;
       align-Items: center;
       padding: 10px 20px;
-      background-Color: #f8f9fa;
+      background-Color: #f9f9ff;
       border-Bottom: 1px solid #e5e5e5;
       position: sticky;
       top: 0;
@@ -13,7 +13,12 @@
     }
     .logo {
       font-Size: 32px;
-      font-Weight: bold
+      font-Weight: bold;
+      color: #001f3f !important;
+      cursor: pointer;
+    }
+    .logo:hover{
+color: #fdc632 !important;
     }
     .nav{
       display: flex;
@@ -21,19 +26,33 @@
     }
     .navLink {
       text-Decoration: none;
-      color: #007bff;
+      color: #001f3f;
       font-Size: 18px;
       font-weight: 700;
+      border-bottom: 4px solid transparent;
     }
     .navLink:hover {
-   
-      color: rgb(42, 140, 165);
-     
-    }
+      color: #fdc632;
+      border-bottom: 4px solid #fdc632;
+  }
     .authButtons{
       display: flex;
       gap: 10px;
-      width: 180px
+      width: 180px;
+    }
+
+    .authButtons button{
+      background-color: #001f3f !important;
+      color: #fdc632;   
+      cursor: pointer;
+      border: 1px solid #001f3f;
+    }
+    .authButtons button:hover{
+      color: #001f3f !important;
+      background-color: #f9f9ff !important;   
+      border: 1px solid #001f3f;
+      cursor: pointer;
+      box-shadow: 1px 1px 10px #001f3f;
     }
   
   
