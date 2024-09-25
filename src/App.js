@@ -5,6 +5,7 @@ import { Header, Home, PrivateRoutes } from './component';
 import About from './component/AboutUs/About';
 import {Landing} from './component';
 import Footer from './component/Footer/Footer';
+import PerformanceChart from './component/Services/Performance/Performance';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           }
         />        
         <Route path='/about' element={<About/>}/>
+        <Route path='/services' element={<PerformanceChart/>}/>
     </Routes>
     <Footer/>
     </div>
