@@ -83,3 +83,37 @@ h1{
 
 }
 
+.aliging-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+
+@media (max-width: 700px) {
+    .c-point1 {
+        top: 7% !important}
+
+    .c-point1 span {
+        font-size: 14px;
+        line-height: 10px;
+        font-weight: 400;}
+        .c-point1 h1{
+            font-size: 18px !important;
+        }
+        .btn-cpoint1 button {
+            width: auto !important;
+            height: auto !important;
+        }
+        .awesome-div h2{
+            font-size: 18px !important;
+        }
+        .awesome-div span {
+            font-style: italic;
+            font-size: 14px;
+            line-height: 14px;}
+            span.Awesome-features, span.popular-courses {
+                padding: 0 10% !important;
+    }
+}

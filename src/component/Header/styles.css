@@ -8,8 +8,8 @@
       background-Color: #f9f9ff;
       border-Bottom: 1px solid #e5e5e5;
       position: sticky;
-      top: 0;
-      z-index: 1;
+      top: -1px;
+      z-index: 2;
     }
     .logo {
       font-Size: 32px;
@@ -38,7 +38,7 @@ color: #fdc632 !important;
     .authButtons{
       display: flex;
       gap: 10px;
-      width: 180px;
+      width: 190px;
     }
 
     .authButtons button{
@@ -80,3 +80,16 @@ color: #fdc632 !important;
       transform-origin: center; /* Rotate from the center */
     }
     
+
+    @media (max-width: 700px) {
+   .header{
+    display: block;
+   }
+   .authButtons{
+    width: 100%;
+    justify-content: center;
+   }
+   .nav{
+    justify-content: center;
+   }
+  }

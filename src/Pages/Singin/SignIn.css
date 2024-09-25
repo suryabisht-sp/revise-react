@@ -1,0 +1,53 @@
+.login-container{
+    display: flex;
+    width: 100%;
+    position: relative;
+
+}
+
+
+.left-image {
+    background-image: url("https://i.pinimg.com/736x/67/56/24/6756244444f970dd4714cdde90662072.jpg");
+    background-color: #f3f3f3; /* Fallback color */
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* Position the image in the center */
+width: 50%;
+}
+
+.right-part{
+    width: 50%;
+    position: relative;
+}
+.right-wrapper{
+    position: absolute;
+    top: 36%;
+    bottom: 50%;
+    /* left: 50%; */
+    /* right: 50%; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16%;
+}
+
+form{
+    width: 70%;
+    box-shadow: 1px 1px 15px #001f3f;
+    border-radius: 4px;
+    padding: 3rem;
+}
+
+.logo{
+    font-size: 2.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Initial 3D shadow */
+    transition: text-shadow 900ms ease; /* Smooth transition for the shadow effect */
+}
+
+
+.logo:hover {
+    text-shadow: 50px 15px 25px rgba(0, 0, 0, 0.5); /* Move shadow to the right on hover */
+  }
