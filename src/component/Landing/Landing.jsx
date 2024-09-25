@@ -1,11 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./styles.css";
-import { Cards } from "../../component/Cards/Cards";
-import Footer from "../../component/Footer/Footer";
-import DesignCard from "../../component/DesignCard/DesginCard";
-import Register from "../../component/Register/Register";
-const Landing = ({registerRef}) => {
-
+import { Cards } from "../Cards/Cards";
+import Footer from "../Footer/Footer";
+import DesignCard from "../DesignCard/DesginCard";
+import Register from "../Register/Register";
+const Landing = () => {
 
   const data=[
     {
@@ -70,7 +69,6 @@ const cardData=[
         <img
           src="https://themewagon.github.io/edustage/img/banner/home-banner.jpg"
           alt="main-image"
-          loading="lazy"
         />
         <div className="c-point1">
           <span>BEST ONLINE EDUCATION SERVICE IN THE WORLD</span>
@@ -82,21 +80,19 @@ const cardData=[
         </div>
       </div>
       <div className="awesome-div">
-        <div className="aliging-div">
+        <div>
           <h2>Awesome Features</h2>
-          <span className="Awesome-features">Replenish man have thing gathering lights yielding shall you</span>
+          <span>Replenish man have thing gathering lights yielding shall you</span>
         </div>
 <div className="card-box">
 {data.map((item, index)=><Cards key={index} items={item}/>)}
 </div>
       </div>
-      <section ref={registerRef}>
 <Register/>
-      </section>
       <div className="awesome-div">
-        <div className="aliging-div">
+        <div>
           <h2>Our Populur Topics In React</h2>
-          <span className="popular-courses">Replenish man have thing gathering lights yielding shall you</span>
+          <span>Replenish man have thing gathering lights yielding shall you</span>
         </div>
 <div className="card-box">
 {cardData.map((item, index)=><DesignCard key={index} items={item}/>)}

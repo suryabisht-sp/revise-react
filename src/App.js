@@ -1,38 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { Header} from './component';
-import About from './Pages/AboutUs/About';
-import {Landing, Home, Signin } from './Pages';
+import { Header, Home, PrivateRoutes } from './component';
+import About from './component/AboutUs/About';
+import {Landing} from './component';
 import Footer from './component/Footer/Footer';
-import { useRef } from 'react';
-import MainLayout from './component/Layout/MainLayout/MainLayout';
-import PrivateRoutes from './HOC/PrivateRoutes/PrivateRoutes';
 
 function App() {
-  const registerSectionRef = useRef(null); 
-
-  const handleRegisterClick = () => {
-    registerSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }
   return (
     <div className="App">
+      <Header/>
     <Routes>
-    <Route element={<MainLayout onRegisterClick={handleRegisterClick} />}>
       <Route
-          path="/"
+          path="/home"
           element={
-            <PrivateRoutes fallback={Landing} registerRef={registerSectionRef}>
-              <Home registerRef={registerSectionRef} />
+            <PrivateRoutes fallback={Landing}>
+              <Home/>
             </PrivateRoutes>
           }
-        />  
-          <Route path='/about' element={<About/>}/>
-        </Route>     
-         
-        <Route path='/signin' element={<Signin/>}/>
+        />        
+        <Route path='/about' element={<About/>}/>
     </Routes>
-
+    <Footer/>
     </div>
   );
 }
