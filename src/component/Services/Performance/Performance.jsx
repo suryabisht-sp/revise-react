@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart, Line, BarChart, Bar, AreaChart, Area,
+  PieChart, Pie, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+} from 'recharts';
+
 import "./Performance.css"
 const PerformanceChart = () => {
   const [data, setData] = useState([]);
   const [chartType, setChartType] = useState('line');
+  const COLORS = ['#8884d8', '#82ca9d'];
 
   // Function to generate random values for simulation
   const generateRandomValue = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -41,11 +47,23 @@ const PerformanceChart = () => {
   const handleChartTypeChange = (type) => {
     setChartType(type);
   };
-
   // Remove the oldest data point when data exceeds a certain length (optional)
   const MAX_DATA_POINTS = 10; // Set the maximum number of data points to display
   const trimmedData = data.length > MAX_DATA_POINTS ? data.slice(data.length - MAX_DATA_POINTS) : data;
 
+  // Get the latest data point for the pie charts
+  const latestData = data.length > 0 ? data[data.length - 1] : { memory: 0, cpu: 0 };
+
+  // Pie data for memory and CPU
+  const memoryPieData = [
+    { name: 'Used Memory', value: latestData.memory },
+    { name: 'Available Memory', value: 100 - latestData.memory }
+  ];
+
+  const cpuPieData = [
+    { name: 'Used CPU', value: latestData.cpu },
+    { name: 'Available CPU', value: 100 - latestData.cpu }
+  ];
   return (
     <div className='performance-chart'>
       {/* Buttons to switch between charts */}
@@ -57,6 +75,9 @@ const PerformanceChart = () => {
       </button>
       <button onClick={() => handleChartTypeChange('area')} className="toggle-chart-btn">
         Show Area Chart
+      </button>
+      <button onClick={() => handleChartTypeChange('pie')} className="toggle-chart-btn">
+        Show Pie Chart
       </button>
 
       <ResponsiveContainer width="100%" height={400}>
@@ -95,6 +116,49 @@ const PerformanceChart = () => {
             <Area type="monotone" dataKey="memory" stroke="#8884d8" fill="#8884d8" />
             <Area type="monotone" dataKey="cpu" stroke="#82ca9d" fill="#82ca9d" />
           </AreaChart>
+        )}
+           {chartType === 'pie' && (
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            {/* Pie chart for memory usage */}
+            <PieChart width={400} height={400}>
+              <Pie
+                data={memoryPieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={120}
+                fill="#8884d8"
+                label
+              >
+                {memoryPieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+
+            {/* Pie chart for CPU usage */}
+            <PieChart width={400} height={400}>
+              <Pie
+                data={cpuPieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={120}
+                fill="#82ca9d"
+                label
+              >
+                {cpuPieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </div>
         )}
       </ResponsiveContainer>
     </div>
