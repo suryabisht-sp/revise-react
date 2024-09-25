@@ -38,9 +38,9 @@ const PerformanceChart = () => {
         disk: generateRandomValue(10, 90),   // Simulated Disk I/O
         network: generateRandomValue(50, 100), // Simulated Network Traffic
         errors: generateRandomValue(0, 5), // Error rates
-        tasks: generateRandomValue(5, 20),  // Pending tasks
+        tasks: generateRandomValue(0, 50),  // Pending tasks
         execTime: generateRandomValue(1, 10), // Execution time per task
-        latency: generateRandomValue(10, 100), // Latency
+        latency: generateRandomValue(0, 50), // Latency
       });
     }
     setData(initialData);
@@ -55,9 +55,9 @@ const PerformanceChart = () => {
         disk: generateRandomValue(10, 90),
         network: generateRandomValue(50, 100),
         errors: generateRandomValue(0, 5),
-        tasks: generateRandomValue(5, 20),
+        tasks: generateRandomValue(0, 50),
         execTime: generateRandomValue(1, 10),
-        latency: generateRandomValue(10, 100),
+        latency: generateRandomValue(0, 50),
       };
 
       setData(prevData => [...prevData, newDataPoint]); // Append new data point
@@ -173,6 +173,11 @@ const PerformanceChart = () => {
         <Line type="monotone" dataKey="cpu" stroke="#82ca9d" />
         <Line type="monotone" dataKey="disk" stroke="#ffc658" />
         <Line type="monotone" dataKey="network" stroke="#ff7300" />
+        <Line type="monotone" dataKey="errors" stroke="#ff4c4c" />
+        <Line type="monotone" dataKey="tasks" stroke="#ff9c4c" />
+        <Line type="monotone" dataKey="execTime" stroke="#4c8cff" />
+        <Line type="monotone" dataKey="latency" stroke="#c54cff" />
+
       </LineChart>
         )}
         {chartType === 'bar' && (
@@ -186,6 +191,11 @@ const PerformanceChart = () => {
          <Bar dataKey="tasks" fill="#82ca9d" />
          <Bar dataKey="execTime" fill="#ffc658" />
          <Bar dataKey="latency" fill="#ff7300" />
+         <Bar dataKey="memory" fill="#8884d8" />
+        <Bar dataKey="cpu" fill="#82ca9d" />
+        <Bar dataKey="disk" fill="#ffc658" />
+        <Bar dataKey="network" fill="#ff7300" />
+        
        </BarChart>
         )}
         {chartType === 'area' && (
@@ -199,6 +209,7 @@ const PerformanceChart = () => {
           <Area type="monotone" dataKey="cpu" stroke="#82ca9d" fill="#82ca9d" />
           <Area type="monotone" dataKey="disk" stroke="#ffc658" fill="#ffc658" />
           <Area type="monotone" dataKey="network" stroke="#ff7300" fill="#ff7300" />
+      
         </AreaChart>
         )}
         {chartType === 'pie' && (
@@ -228,19 +239,23 @@ const PerformanceChart = () => {
       <div>
         <h1>Explanation of Metrics and Charts:</h1>
         <ul>
-          <h2>Line/Area Charts show real-time metrics:</h2>
+          <h2>Line/Bar Chart show real-time metrics:</h2>
           <li>Memory Usage</li>
           <li>CPU Usage</li>
           <li>Disk I/O</li>
           <li>Network Traffic</li>
-        </ul>
-        <ul>
-          <h2>Bar Chart displays:</h2>
           <li>Error Rates</li>
           <li>Pending Tasks</li>
 
           <li>Execution Time</li>
           <li>Latency</li>
+        </ul>
+        <ul>
+          <h2>Area Charts show real-time metrics:</h2>
+          <li>Memory Usage</li>
+          <li>CPU Usage</li>
+          <li>Disk I/O</li>
+          <li>Network Traffic</li>
         </ul>
         <ul>
           <h2>Pie Charts split data:</h2>
