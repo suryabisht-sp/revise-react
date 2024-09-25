@@ -85,77 +85,125 @@ const PerformanceChart = () => {
     { name: 'Used CPU', value: latestData.cpu },
     { name: 'Available CPU', value: 100 - latestData.cpu }
   ];
+
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          {payload.map((entry, index) => {
+            const metricName = entry.name; // This gives us the metric name (like "cpu", "memory", etc.)
+            const metricValue = entry.value; // This gives us the metric value
+  
+            // Define a color map based on the metric type
+            const colorMap = {
+              memory: '#8884d8', // Memory color
+              cpu: '#82ca9d',    // CPU color
+              disk: '#ffc658',   // Disk color
+              network: '#ff7300', // Network color
+              errors: '#ff4c4c', // Errors color
+              tasks: '#ff9c4c',  // Tasks color
+              execTime: '#4c8cff', // Execution time color
+              latency: '#c54cff'  // Latency color
+            };
+  
+            // Determine the appropriate unit
+            const unitMap = {
+              memory: '%',
+              cpu: '%',
+              disk: 'I/O',
+              network: 'KB/s',
+              errors: '',
+              tasks: '',
+              execTime: 's',
+              latency: 'ms'
+            };
+  
+            return (
+              <p key={index} style={{ color: colorMap[metricName] }}>
+                {`${metricName.charAt(0).toUpperCase() + metricName.slice(1)}: ${metricValue} ${unitMap[metricName] || ''}`}
+              </p>
+            );
+          })}
+        </div>
+      );
+    }
+  
+    return null;
+  };
+  // Adding units to data for tooltips
+  const updatedTrimmedData = trimmedData.map(point => ({
+    ...point,
+    memory: { value: point.memory, unit:'%' },
+    cpu: { value: point.cpu, unit:'%' },
+    disk: { value: point.disk, unit:'MB/s' },
+    network: { value: point.network, unit:'KB/s' },
+    errors: { value: point.errors, unit:'Count' },
+    tasks: { value: point.tasks, unit:'Count' },
+    execTime: { value: point.execTime, unit:'s' },
+    latency: { value: point.latency, unit:'ms' },
+  }));
+
   return (
     <div className="performance-chart">
       {/* Buttons to switch between charts */}
       <div className="performance-chart-btn">
-        <button
-          onClick={() => handleChartTypeChange("line")}
-          className="toggle-chart-btn"
-        >
+        <button onClick={() => handleChartTypeChange("line")} className="toggle-chart-btn">
           Show Line Chart
         </button>
-        <button
-          onClick={() => handleChartTypeChange("bar")}
-          className="toggle-chart-btn"
-        >
+        <button onClick={() => handleChartTypeChange("bar")} className="toggle-chart-btn">
           Show Bar Chart
         </button>
-        <button
-          onClick={() => handleChartTypeChange("area")}
-          className="toggle-chart-btn"
-        >
+        <button onClick={() => handleChartTypeChange("area")} className="toggle-chart-btn">
           Show Area Chart
         </button>
-        <button
-          onClick={() => handleChartTypeChange("pie")}
-          className="toggle-chart-btn"
-        >
+        <button onClick={() => handleChartTypeChange("pie")} className="toggle-chart-btn">
           Show Pie Chart
         </button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         {chartType === 'line' && (
-          <LineChart data={trimmedData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="memory" stroke="#8884d8" />
-            <Line type="monotone" dataKey="cpu" stroke="#82ca9d" />
-            <Line type="monotone" dataKey="disk" stroke="#ffc658" />
-            <Line type="monotone" dataKey="network" stroke="#ff7300" />
-          </LineChart>
+        <LineChart data={trimmedData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="time" />
+        <YAxis />
+        <Tooltip content={<CustomTooltip />} />
+        <Legend />
+        <Line type="monotone" dataKey="memory" stroke="#8884d8" />
+        <Line type="monotone" dataKey="cpu" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="disk" stroke="#ffc658" />
+        <Line type="monotone" dataKey="network" stroke="#ff7300" />
+      </LineChart>
         )}
         {chartType === 'bar' && (
-          <BarChart data={trimmedData}>
-            <CartesianGrid strokeDasharray="4 4" />
-            <XAxis dataKey="time" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="errors" fill="#8884d8" />
-            <Bar dataKey="tasks" fill="#82ca9d" />
-            <Bar dataKey="execTime" fill="#ffc658" />
-            <Bar dataKey="latency" fill="#ff7300" />
-          </BarChart>
+         <BarChart data={trimmedData}>
+         <CartesianGrid strokeDasharray="4 4" />
+         <XAxis dataKey="time" />
+         <YAxis />
+         <Tooltip content={<CustomTooltip />} />
+         <Legend />
+         <Bar dataKey="errors" fill="#8884d8" />
+         <Bar dataKey="tasks" fill="#82ca9d" />
+         <Bar dataKey="execTime" fill="#ffc658" />
+         <Bar dataKey="latency" fill="#ff7300" />
+       </BarChart>
         )}
         {chartType === 'area' && (
           <AreaChart data={trimmedData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Area type="monotone" dataKey="memory" stroke="#8884d8" fill="#8884d8" />
-            <Area type="monotone" dataKey="cpu" stroke="#82ca9d" fill="#82ca9d" />
-            <Area type="monotone" dataKey="disk" stroke="#ffc658" fill="#ffc658" />
-            <Area type="monotone" dataKey="network" stroke="#ff7300" fill="#ff7300" />
-          </AreaChart>
+          <CartesianGrid strokeDasharray="3 3 " />
+          <XAxis dataKey="time" />
+          <YAxis />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend />
+          <Area type="monotone" dataKey="memory" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="cpu" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="monotone" dataKey="disk" stroke="#ffc658" fill="#ffc658" />
+          <Area type="monotone" dataKey="network" stroke="#ff7300" fill="#ff7300" />
+        </AreaChart>
         )}
         {chartType === 'pie' && (
           <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <span>Unit %</span>
             <PieChart width={400} height={400}>
               <Pie data={memoryPieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={120} fill="#8884d8" label>
                 {memoryPieData.map((entry, index) => (

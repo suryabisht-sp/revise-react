@@ -27,3 +27,19 @@ li{
 ul{
     text-align: start;
 }
+.custom-tooltip {
+    background-color: rgba(0, 0, 0); 
+    padding: 2px;
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .custom-tooltip p {
+
+    padding:0 10px; /* Padding around the content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    font-size: 12px !important; /* Font size */
+    line-height: 1.5;
+  
+  }
+  
