@@ -1,6 +1,6 @@
 import React from 'react'
-import Counter from '../chapter1/Counter'
-import CounterUserReducer from '../chapter2/CounterUseReducer'
+import Counter from '../../component/chapter1/Counter'
+import CounterUserReducer from '../../component/chapter2/CounterUseReducer'
 
 const Home = () => {
   return (
